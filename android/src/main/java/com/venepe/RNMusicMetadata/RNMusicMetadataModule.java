@@ -35,7 +35,7 @@ public class RNMusicMetadataModule extends ReactContextBaseJavaModule {
     private WritableMap getData(String path) {
         Uri uri = Uri.parse(path);
         MediaMetadataRetriever meta = new MediaMetadataRetriever();
-        if(isContentUri(uri)) meta.setDataSource(getReactApplicationContext(), uri); else meta.setDataSource(path, new HashMap<String, String>());
+        meta.setDataSource(getReactApplicationContext(), uri); 
         String title = meta.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
         String artist = meta.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
         String albumName = meta.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM);
